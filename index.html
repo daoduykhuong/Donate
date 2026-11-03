@@ -116,6 +116,12 @@ h1{font-size:clamp(44px,13vw,64px)}
 body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 }
 @keyframes up{from{transform:translateY(40px);opacity:.4}}
+.fab{position:fixed;right:16px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:45;border:0;border-radius:99px;padding:14px 20px;font:700 15px "Be Vietnam Pro",system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,var(--g1),var(--g2));box-shadow:0 10px 24px var(--shadow)}
+.thm{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:45;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:18px;cursor:pointer}
+@media(max-width:860px){.fab{bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
+.chips{display:flex;gap:8px;margin:0 0 12px}
+.chips button{flex:1;padding:10px 4px;border-radius:99px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 14px "Be Vietnam Pro",system-ui,sans-serif;cursor:pointer}
+.chips .on{border-color:var(--g1);background:var(--pill-bg)}
 .bt{margin:18px 0 8px;font-weight:600}.bh{font-size:13px;color:var(--muted);margin:0 0 10px}
 .banks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .banks a{display:block;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;font-size:13px;font-weight:600}
@@ -175,6 +181,7 @@ body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   <section id="menu">
     <h2>Thực đơn của mình</h2>
     <p class="sub">Chọn một món, mình sẽ nhớ ơn bạn rất lâu.</p>
+    <div class="btns" style="margin-bottom:14px"><button class="btn" id="rd">🎲 Mời ngẫu nhiên</button></div>
     <div class="tw"><table class="mt"><thead><tr><th>Món</th><th>Giá</th><th></th></tr></thead><tbody>
 <tr class="mi" data-n="ly trà đá" data-am="5000"><td><div class="nm"><div class="e">🧊</div><div><b>Ly trà đá</b><em>Giải khát, giải sầu</em></div></div></td><td class="pr"><span>5.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
 <tr class="mi" data-n="ổ bánh mì" data-am="15000"><td><div class="nm"><div class="e">🥖</div><div><b>Ổ bánh mì</b><em>Nhanh, gọn, no</em></div></div></td><td class="pr"><span>15.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
@@ -195,6 +202,7 @@ body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <p class="jk" id="so"></p><button class="btn main" id="sb">Rủ bạn bè 📤</button></div></section>
 <section id="vd"><h2>🏆 Bảng vinh danh</h2><p class="sub">Những người đã mời mình (bấm "Mình đã chuyển" sau khi chuyển khoản).</p>
 <div class="fx"><ul class="lb" id="lb"></ul><p class="note">Dữ liệu lưu trên máy này, chưa chia sẻ giữa mọi người.</p></div></section>
+<section id="nk"><h2>📖 Nhật ký bữa ăn</h2><p class="sub">Những bữa đã được mời, lưu trên máy này.</p><div class="fx"><ul class="lb" id="nl"></ul></div></section>
 <section id="jk"><h2>🎁 Lời chúc ngẫu nhiên</h2><p class="sub">Nhận một lời chúc cho hôm nay, rồi gửi tặng người thương nhé.</p>
 <div class="fx"><p class="jk" id="jt">Bấm nút để nhận lời chúc…</p><div class="btns"><button class="btn main" id="jb">Nhận lời chúc</button><button class="btn" id="jc">Sao chép</button></div></div></section>
 </div>
@@ -205,8 +213,10 @@ body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <div class="bt">Chuyển xong rồi?</div><input id="nm" placeholder="Tên bạn (tuỳ chọn)" maxlength="20" autocomplete="off"><button class="btn main" id="ok">Mình đã chuyển ✅</button><p class="bh" id="msg" style="margin-top:10px;color:var(--ink)"></p>
 <div id="bk" hidden><div class="bt">⚡ Chuyển nhanh bằng app ngân hàng</div><p class="bh">⚡ = app tự điền sẵn tên, số tài khoản, số tiền. App khác chỉ mở được app (số tài khoản đã được chép sẵn để dán).</p><div class="banks" id="bl"></div></div>
 <p class="bh" id="bd" hidden>Mở trang này trên điện thoại để chuyển nhanh bằng app ngân hàng.</p></div></div>
+<button class="fab" id="fab">🍚 Mời nhanh</button><button class="thm" id="th" aria-label="Đổi sáng/tối">🌓</button>
 <div class="modal" id="pm" role="dialog" aria-modal="true"><div class="box"><button class="x" id="px" aria-label="Đóng">×</button>
 <h3>Poster của bạn 🎉</h3><p>Lưu lại hoặc gửi cho bạn bè nhé.</p>
+<div class="chips" id="pc"><button data-t="g" class="on">🌿 Xanh</button><button data-t="y">🌼 Vàng</button><button data-t="k">🖤 Tối</button></div>
 <img id="pi" alt="Poster cảm ơn">
 <div class="btns" style="margin-top:14px"><button class="btn main" id="ps">📤 Chia sẻ ảnh</button><button class="btn" id="pd">⬇️ Lưu ảnh</button></div>
 <p class="note">Không lưu được? Nhấn giữ vào ảnh rồi chọn "Lưu ảnh".</p></div></div>
@@ -269,8 +279,8 @@ var LIFE=['Cho đi không làm bạn nghèo đi, nó làm bữa cơm của ai đ
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
 document.getElementById('ok').onclick=function(){
   var nm=document.getElementById('nm').value.trim()||'Một người tốt bụng',a=ld();
-  a.push({n:nm,a:+cur.am||0,d:new Date().toDateString()});sv(a);rb();
-  var lm=pick(LIFE);document.getElementById('msg').textContent='Cảm ơn '+nm+'! 🙏 '+lm;mkPoster(nm,lm);
+  a.push({n:nm,a:+cur.am||0,d:new Date().toDateString(),s:cur.n,t:Date.now()});sv(a);rb();rn();
+  var lm=pick(LIFE);document.getElementById('msg').textContent='Cảm ơn '+nm+'! 🙏 '+lm;boom();mkPoster(nm,lm);
 };
 var D=[].map.call(document.querySelectorAll('.mi'),function(b){return{n:b.dataset.n,e:b.querySelector('.e').textContent}}),
     N=D.length,ST=360/N,rot=0,pk=null,wh=document.getElementById('wh'),cl=['#2a8a4e','#e8b830','#4ea15e','#f08a4b'];
@@ -316,30 +326,36 @@ document.querySelectorAll('.mi').forEach(function(b){b.addEventListener('click',
 var PS=null,PU=null,pm=document.getElementById('pm');
 function rr(g,x,y,w,h,r){g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h)}
 function wrapT(g,t,x,y,w,lh){var ws=t.split(' '),l='';ws.forEach(function(s){var q=l?l+' '+s:s;if(g.measureText(q).width>w&&l){g.fillText(l,x,y);y+=lh;l=s}else l=q});g.fillText(l,x,y);return y}
-async function poster(nm,d,msg,amt){
-  var W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d');
+async function poster(nm,d,msg,amt,th){
+  var W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d'),T=THEMES[th]||THEMES.g;
   try{await document.fonts.ready}catch(e){}
   var f="'Be Vietnam Pro','Baloo 2',system-ui,sans-serif",gr=g.createLinearGradient(0,0,0,H);
-  gr.addColorStop(0,'#f9f5ea');gr.addColorStop(1,'#e2efd9');g.fillStyle=gr;g.fillRect(0,0,W,H);
-  g.fillStyle='#2a8a4e';g.fillRect(0,0,W,140);g.fillStyle='#fff';g.textAlign='center';g.font='700 34px '+f;g.fillText('ĂN XIN ONLINE · BẠN QUÉT, MÌNH NO',W/2,84);
-  g.fillStyle='#fff';g.beginPath();g.arc(W/2,370,160,0,7);g.fill();g.strokeStyle='#b9d9bd';g.lineWidth=6;g.stroke();
+  gr.addColorStop(0,T.b1);gr.addColorStop(1,T.b2);g.fillStyle=gr;g.fillRect(0,0,W,H);
+  g.fillStyle=T.hd;g.fillRect(0,0,W,140);g.fillStyle=T.ht;g.textAlign='center';g.font='700 34px '+f;g.fillText('ĂN XIN ONLINE · BẠN QUÉT, MÌNH NO',W/2,84);
+  g.fillStyle=T.cd;g.beginPath();g.arc(W/2,370,160,0,7);g.fill();g.strokeStyle=T.ac;g.lineWidth=6;g.stroke();
   g.font='180px "Apple Color Emoji","Noto Color Emoji",sans-serif';g.fillText(d.e,W/2,435);
   var s=64,t='Cảm ơn '+nm+'!';g.font='800 '+s+'px '+f;while(g.measureText(t).width>940&&s>34){s-=4;g.font='800 '+s+'px '+f}
-  g.fillStyle='#1d3325';g.fillText(t,W/2,640);
-  g.fillStyle='#2a8a4e';g.font='600 40px '+f;g.fillText('đã mời mình '+d.n+(amt?' ('+vnd(amt)+')':''),W/2,710);
-  g.fillStyle='#fff';rr(g,80,770,920,390,36);g.fill();g.strokeStyle='#d8d6c6';g.lineWidth=3;g.stroke();
-  g.fillStyle='#2a8a4e';g.font='600 28px '+f;g.fillText('THÔNG ĐIỆP DÀNH CHO BẠN',W/2,830);
-  g.fillStyle='#1d3325';g.font='italic 500 44px '+f;wrapT(g,'“'+msg+'”',W/2,915,820,62);
-  g.fillStyle='#5a625b';g.font='500 30px '+f;g.fillText(new Date().toLocaleDateString('vi-VN'),W/2,1235);
-  g.fillText('Một bữa ăn nhỏ, một niềm vui lớn 🍚',W/2,1290);
+  g.fillStyle=T.ik;g.fillText(t,W/2,640);
+  g.fillStyle=T.ac;g.font='600 40px '+f;g.fillText('đã mời mình '+d.n+(amt?' ('+vnd(amt)+')':''),W/2,705);
+  var bd='🏅 '+(BADGE[d.n]||'Người tử tế');g.font='700 32px '+f;var bw=g.measureText(bd).width+56;
+  g.fillStyle=T.ac;rr(g,(W-bw)/2,730,bw,60,30);g.fill();g.fillStyle=T.ht;g.fillText(bd,W/2,772);
+  g.fillStyle=T.cd;rr(g,80,815,920,355,36);g.fill();g.strokeStyle=T.ln;g.lineWidth=3;g.stroke();
+  g.fillStyle=T.ac;g.font='600 28px '+f;g.fillText('THÔNG ĐIỆP DÀNH CHO BẠN',W/2,872);
+  g.fillStyle=T.ik;g.font='italic 500 42px '+f;wrapT(g,'“'+msg+'”',W/2,948,820,60);
+  g.fillStyle=T.mu;g.font='500 30px '+f;g.fillText(new Date().toLocaleDateString('vi-VN'),W/2,1245);
+  g.fillText('Một bữa ăn nhỏ, một niềm vui lớn 🍚',W/2,1295);
   return new Promise(function(r){c.toBlob(r,'image/png')});
 }
+var THEMES={g:{b1:'#f9f5ea',b2:'#e2efd9',hd:'#2a8a4e',ht:'#fff',ac:'#2a8a4e',ik:'#1d3325',cd:'#fff',mu:'#5a625b',ln:'#d8d6c6'},y:{b1:'#fff8e1',b2:'#ffe3a3',hd:'#d08a00',ht:'#fff',ac:'#b86e00',ik:'#3b2a00',cd:'#fffdf5',mu:'#7a6a40',ln:'#f0d9a0'},k:{b1:'#14201a',b2:'#0c1410',hd:'#4fbf75',ht:'#0c1410',ac:'#7fd18a',ik:'#f1f0e4',cd:'#1b2a21',mu:'#b3bbb2',ln:'#34473b'}};
+var BADGE={'ly trà đá':'Hiệp sĩ trà đá','ổ bánh mì':'Chiến thần bánh mì','tô cơm trứng':'Người hùng cơm trứng','tô phở':'Quý tộc nước dùng','ly nước cam':'Chuyên gia vitamin C','dĩa mồi':'Bậc thầy mồi nhậu','thùng bia':'Mạnh thường quân thùng bia'},TH='g',LP=null;
+function setP(b){if(!b)return;if(PU)URL.revokeObjectURL(PU);PS=b;PU=URL.createObjectURL(b);document.getElementById('pi').src=PU}
 async function mkPoster(nm,msg){
   var d=D.filter(function(x){return x.n===cur.n})[0]||{n:'một bữa ăn',e:'🍚'};
-  var b=await poster(nm,d,msg,+cur.am||0);if(!b)return;
-  if(PU)URL.revokeObjectURL(PU);PS=b;PU=URL.createObjectURL(b);
-  document.getElementById('pi').src=PU;m.classList.remove('open');pm.classList.add('open');
+  LP={nm:nm,d:d,msg:msg,amt:+cur.am||0};setP(await poster(nm,d,msg,LP.amt,TH));m.classList.remove('open');pm.classList.add('open');
 }
+document.querySelectorAll('#pc button').forEach(function(b){b.onclick=async function(){
+  TH=b.dataset.t;document.querySelectorAll('#pc button').forEach(function(x){x.classList.toggle('on',x===b)});
+  if(LP)setP(await poster(LP.nm,LP.d,LP.msg,LP.amt,TH))}});
 document.getElementById('px').onclick=function(){pm.classList.remove('open')};
 pm.addEventListener('click',function(e){if(e.target===pm)pm.classList.remove('open')});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')pm.classList.remove('open')});
@@ -350,6 +366,27 @@ document.getElementById('ps').onclick=function(){
   else toast('Máy chưa hỗ trợ chia sẻ ảnh, hãy bấm Lưu ảnh nhé');
 };
 rb();
+function boom(){
+  try{var AC=window.AudioContext||window.webkitAudioContext,a=new AC();[[880,0],[1318,.12]].forEach(function(p){var o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.value=p[0];o.connect(g);g.connect(a.destination);var t=a.currentTime+p[1];g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.25,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.5);o.start(t);o.stop(t+.55)})}catch(e){}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:80';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);
+  var g=c.getContext('2d'),cs=['#2a8a4e','#f2b522','#f08a4b','#4ea15e','#fff'],ps=[];
+  for(var i=0;i<120;i++)ps.push({x:c.width/2,y:c.height*.6,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,s:6+Math.random()*6,c:cs[i%5],r:Math.random()*6});
+  var t0=performance.now();(function f(t){g.clearRect(0,0,c.width,c.height);ps.forEach(function(p){p.vy+=.4;p.x+=p.vx;p.y+=p.vy;p.r+=.2;g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillStyle=p.c;g.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);g.restore()});if(t-t0<2600)requestAnimationFrame(f);else c.remove()})(t0);
+}
+function rn(){
+  var l=document.getElementById('nl');l.textContent='';var a=ld().slice(-8).reverse();
+  if(!a.length){var e=document.createElement('li');e.textContent='Chưa có bữa nào được ghi lại.';l.appendChild(e);return}
+  a.forEach(function(x){var d=D.filter(function(y){return y.n===x.s})[0],li=document.createElement('li'),p=document.createElement('span'),q=document.createElement('b');
+    p.textContent=(d?d.e:'🍚')+' '+(x.s||'một bữa ăn')+' · '+x.n;q.textContent=x.a?vnd(x.a):'';li.appendChild(p);li.appendChild(q);l.appendChild(li)});
+}
+document.getElementById('fab').onclick=function(){document.querySelector('.mi[data-n="tô cơm trứng"]').click()};
+document.getElementById('rd').onclick=function(){var d=pick(D);toast('🎲 Số phận đã chọn '+d.n+' cho bạn!');setTimeout(function(){document.querySelector('.mi[data-n="'+d.n+'"]').click()},900)};
+(function(){var r=document.documentElement,t=document.getElementById('th');
+  try{var s=localStorage.getItem('anxin_th');if(s)r.dataset.theme=s}catch(e){}
+  t.onclick=function(){var c=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('anxin_th',n)}catch(e){}};
+})();
+rn();
 </script>
 <script>if("serviceWorker"in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}</script>
 </body>
