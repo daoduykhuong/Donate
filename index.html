@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="format-detection" content="telephone=no">
 <title>Ăn xin online · Bạn quét, mình no</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,500&family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap">
 <style>
 :root{
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
@@ -77,21 +77,6 @@ h2{font-family:"Baloo 2",system-ui,sans-serif;font-size:clamp(28px,4vw,40px);mar
 .box .btn{padding:12px 20px;font-size:16px;width:100%}
 .row{display:flex;gap:10px;margin-bottom:14px}.row select{flex:1;min-width:0}.row input{width:84px}
 .fx select,.fx input[type=number]{padding:12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
-.tw{overflow-x:auto;border:1.5px solid var(--line);border-radius:20px;background:var(--card)}
-.mt{width:100%;border-collapse:collapse}
-.mt th{text-align:left;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 16px;background:var(--pill-bg);border-bottom:1.5px solid var(--line)}
-.mt th:nth-child(2),.mt td.pr{text-align:right}
-.mt td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
-.mt tr:last-child td{border-bottom:0}
-.mi{cursor:pointer;transition:background .15s}.mi:hover{background:var(--pill-bg)}
-.nm{display:flex;align-items:center;gap:12px}
-.nm .e{width:44px;height:44px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:24px;background:var(--pill-bg);border:1.5px solid var(--pill-line)}
-.nm b{display:block;font-size:16px}.nm em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
-.tg{margin-left:8px;font-size:11px;font-weight:600;text-decoration:none;padding:2px 8px;border-radius:99px;background:var(--g1);color:#fff;white-space:nowrap}
-.mt td.pr span{color:var(--gold);font-weight:700;white-space:nowrap}
-.pick{font:600 14px "Be Vietnam Pro",system-ui,sans-serif;padding:8px 14px;border-radius:99px;border:1.5px solid var(--g1);background:transparent;color:var(--g1);cursor:pointer;white-space:nowrap}
-.mi:hover .pick{background:var(--g1);color:#fff}
-@media(max-width:520px){.mt th,.mt td{padding:10px}.nm em{display:none}.pick{padding:7px 10px}}
 html{background:var(--bg)}
 body{-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-text-size-adjust:100%}
 .ins{display:flex;gap:10px;align-items:center;background:var(--pill-bg);border:1.5px solid var(--pill-line);border-radius:16px;padding:12px 14px;margin-top:20px;font-size:14px}
@@ -111,7 +96,6 @@ h1{font-size:clamp(44px,13vw,64px)}
 .modal{align-items:flex-end;padding:0}
 .box{max-width:none;border-radius:26px 26px 0 0;max-height:92dvh;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));animation:up .25s ease-out}
 .box img{max-width:320px;margin:0 auto}
-.pick{min-height:40px}
 .box .banks a{padding:14px 4px}
 body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 }
@@ -133,6 +117,56 @@ body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 .btn,.pick,.tab{position:relative;overflow:hidden}
 .cur{border-right:2px solid var(--g1);animation:bl .8s step-end infinite}@keyframes bl{50%{border-color:transparent}}
 .sp{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--g1),#f2b522);z-index:60}
+body{background:transparent}
+h1,h2{text-wrap:balance}.lead,.sub{text-wrap:pretty}
+.sig{font-family:"Pacifico","Be Vietnam Pro",cursive;font-style:normal;font-weight:400;font-size:clamp(17px,2.4vw,22px)}
+h1 .b{background-image:linear-gradient(90deg,var(--g1),var(--g2),#f2b522,var(--g2),var(--g1));background-size:200% auto;animation:sh 7s linear infinite}
+@keyframes sh{to{background-position:200% center}}
+.btn.main{animation:pu 2.8s ease-in-out infinite}
+@keyframes pu{50%{box-shadow:0 10px 34px var(--shadow),0 0 0 8px rgba(78,161,94,.12)}}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.28;animation:fl 20s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.bg b{position:absolute;bottom:-60px;font-size:34px;opacity:0;animation:up2 26s linear infinite}
+@keyframes up2{0%{transform:translateY(0) rotate(0);opacity:0}10%,90%{opacity:.22}100%{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+.mq{overflow:hidden;white-space:nowrap;margin:8px 0 0;border-block:1.5px solid var(--line);padding:10px 0;font-family:"Pacifico","Be Vietnam Pro",cursive;color:var(--g1);font-size:18px}
+.mqi{display:inline-block;animation:mq 34s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sk{position:fixed;pointer-events:none;z-index:70;font-size:14px;margin:-7px 0 0 -7px}
+@media(prefers-reduced-motion:reduce){.bg i,.mqi,h1 .b,.btn.main{animation:none}.bg b{display:none}}
+.snd.on{border-color:var(--g1);background:var(--pill-bg)}
+@media(max-width:860px){.wrap{padding-top:64px}}
+/* ===== 3D ===== */
+.btn.main{animation:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 5px 0 #1f6b3d,0 12px 24px var(--shadow);transition:transform .1s,box-shadow .1s}
+.btn.main:active{transform:translateY(4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 0 #1f6b3d,0 4px 10px var(--shadow)}
+.js .rv{transform:perspective(900px) translateY(30px) rotateX(12deg);transform-origin:50% 100%}
+.js .rv.in{transform:none}
+h1 .b{filter:drop-shadow(0 4px 0 rgba(20,90,50,.4)) drop-shadow(0 12px 14px rgba(0,0,0,.2))}
+h1 .a{text-shadow:0 1px 0 #3a5646,0 2px 0 #30493a,0 3px 0 #273d30,0 10px 16px rgba(0,0,0,.25)}
+.wheelw{transform:perspective(900px) rotateX(20deg);filter:drop-shadow(0 26px 22px rgba(0,0,0,.28))}
+.modal.open .box{animation:pop .45s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{transform:perspective(900px) rotateX(-20deg) translateY(30px) scale(.92);opacity:0}}
+.c3o{position:absolute;perspective:300px;pointer-events:none;animation:fl3 4.5s ease-in-out infinite}
+@keyframes fl3{50%{transform:translateY(-14px)}}
+.c3{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffe08a,#f2b522 60%,#c98f12);border:3px solid #c98f12;color:#7a5400;font:800 17px "Baloo 2",sans-serif;box-shadow:0 6px 10px rgba(0,0,0,.2);animation:spin3 3.2s linear infinite}
+@keyframes spin3{to{transform:rotateY(360deg)}}
+/* ===== Thực đơn 3 nhóm cân đối ===== */
+.menu3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.menu3{grid-template-columns:1fr}}
+.grp{border-radius:28px;padding:16px;display:grid;gap:12px;align-content:start;background:var(--pill-bg);border:1.5px solid var(--pill-line)}
+.gh{display:flex;align-items:center;gap:12px;padding:4px 6px 8px}
+.gh i{font-style:normal;font-size:30px}
+.gh b{display:block;font-family:"Baloo 2","Be Vietnam Pro",sans-serif;font-size:20px;line-height:1.1}
+.gh em{display:block;font-style:normal;font-size:12.5px;color:var(--muted)}
+.mi{position:relative;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;cursor:pointer;transform-style:preserve-3d;transition:transform .15s ease-out}
+.mi::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--card);border:1.5px solid var(--line);box-shadow:0 6px 16px rgba(30,60,40,.12);transform:translateZ(-1px)}
+.mi:focus-visible{outline:2px solid var(--g1);outline-offset:2px}
+.mi .e{width:48px;height:48px;flex:none;border-radius:15px;display:grid;place-items:center;font-size:26px;background:var(--pill-bg);box-shadow:0 8px 14px rgba(0,0,0,.18);transform:translateZ(26px)}
+.mi .tx{flex:1;min-width:0;transform:translateZ(14px)}
+.mi b{display:block;font-size:16px}
+.mi em{display:block;font-style:normal;font-size:12.5px;color:var(--muted)}
+.mi span{font-family:"Baloo 2","Be Vietnam Pro",sans-serif;font-weight:700;font-size:17px;color:var(--gold);white-space:nowrap;transform:translateZ(20px)}
+.mi .tg{margin-left:6px;font-size:10.5px;font-weight:600;text-decoration:none;padding:2px 7px;border-radius:99px;background:var(--g1);color:#fff;white-space:nowrap;vertical-align:middle}
 .bt{margin:18px 0 8px;font-weight:600}.bh{font-size:13px;color:var(--muted);margin:0 0 10px}
 .banks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .banks a{display:block;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;font-size:13px;font-weight:600}
@@ -193,15 +227,23 @@ body .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
     <h2>Thực đơn của mình</h2>
     <p class="sub">Chọn một món, mình sẽ nhớ ơn bạn rất lâu.</p>
     <div class="btns" style="margin-bottom:14px"><button class="btn" id="rd">🎲 Mời ngẫu nhiên</button></div>
-    <div class="tw"><table class="mt"><thead><tr><th>Món</th><th>Giá</th><th></th></tr></thead><tbody>
-<tr class="mi" data-n="ly trà đá" data-am="5000"><td><div class="nm"><div class="e">🧊</div><div><b>Ly trà đá</b><em>Giải khát, giải sầu</em></div></div></td><td class="pr"><span>5.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-<tr class="mi" data-n="ổ bánh mì" data-am="15000"><td><div class="nm"><div class="e">🥖</div><div><b>Ổ bánh mì</b><em>Nhanh, gọn, no</em></div></div></td><td class="pr"><span>15.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-<tr class="mi" data-n="tô cơm trứng" data-am="30000"><td><div class="nm"><div class="e">🍚</div><div><b>Tô cơm trứng<u class="tg">⭐ Phổ biến</u></b><em>Món ruột của mình</em></div></div></td><td class="pr"><span>30.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-<tr class="mi" data-n="tô phở" data-am="50000"><td><div class="nm"><div class="e">🍜</div><div><b>Tô phở</b><em>Sang chảnh nhẹ</em></div></div></td><td class="pr"><span>50.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-<tr class="mi" data-n="ly nước cam" data-am="20000"><td><div class="nm"><div class="e">🍊</div><div><b>Nước cam</b><em>Bổ sung vitamin C</em></div></div></td><td class="pr"><span>20.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-<tr class="mi" data-n="dĩa mồi" data-am="100000"><td><div class="nm"><div class="e">🍢</div><div><b>Dĩa mồi</b><em>Dành cho buổi tối</em></div></div></td><td class="pr"><span>100.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-<tr class="mi" data-n="thùng bia" data-am="500000"><td><div class="nm"><div class="e">🍺</div><div><b>Thùng bia<u class="tg">🔥 Chơi lớn</u></b><em>Chơi lớn luôn!</em></div></div></td><td class="pr"><span>500.000đ</span></td><td><button class="pick" type="button">Mời →</button></td></tr>
-</tbody></table></div>
+    <div class="menu3">
+<div class="grp"><div class="gh"><i>🌱</i><div><b>Nhẹ nhàng</b><em>5k – 20k</em></div></div>
+<div class="mi" role="button" tabindex="0" data-n="ly trà đá" data-am="5000"><div class="e">🧊</div><div class="tx"><b>Ly trà đá</b><em>Giải khát, giải sầu</em></div><span>5.000đ</span></div>
+<div class="mi" role="button" tabindex="0" data-n="ổ bánh mì" data-am="15000"><div class="e">🥖</div><div class="tx"><b>Ổ bánh mì</b><em>Nhanh, gọn, no</em></div><span>15.000đ</span></div>
+<div class="mi" role="button" tabindex="0" data-n="ly nước cam" data-am="20000"><div class="e">🍊</div><div class="tx"><b>Nước cam</b><em>Bổ sung vitamin C</em></div><span>20.000đ</span></div>
+</div>
+<div class="grp"><div class="gh"><i>🍚</i><div><b>No bụng</b><em>30k – 50k</em></div></div>
+<div class="mi" role="button" tabindex="0" data-n="tô cơm trứng" data-am="30000"><div class="e">🍚</div><div class="tx"><b>Cơm trứng<u class="tg">⭐ Phổ biến</u></b><em>Món ruột của mình</em></div><span>30.000đ</span></div>
+<div class="mi" role="button" tabindex="0" data-n="cơm gà" data-am="40000"><div class="e">🍗</div><div class="tx"><b>Cơm gà</b><em>Thơm lừng, đủ đầy</em></div><span>40.000đ</span></div>
+<div class="mi" role="button" tabindex="0" data-n="tô phở" data-am="50000"><div class="e">🍜</div><div class="tx"><b>Tô phở</b><em>Sang chảnh nhẹ</em></div><span>50.000đ</span></div>
+</div>
+<div class="grp"><div class="gh"><i>🔥</i><div><b>Chơi lớn</b><em>100k – 500k</em></div></div>
+<div class="mi" role="button" tabindex="0" data-n="dĩa mồi" data-am="100000"><div class="e">🍢</div><div class="tx"><b>Dĩa mồi</b><em>Dành cho buổi tối</em></div><span>100.000đ</span></div>
+<div class="mi" role="button" tabindex="0" data-n="nồi lẩu" data-am="200000"><div class="e">🍲</div><div class="tx"><b>Nồi lẩu</b><em>Cả nhóm cùng ăn</em></div><span>200.000đ</span></div>
+<div class="mi" role="button" tabindex="0" data-n="thùng bia" data-am="500000"><div class="e">🍺</div><div class="tx"><b>Thùng bia<u class="tg">🔥 Hot</u></b><em>Chơi lớn luôn!</em></div><span>500.000đ</span></div>
+</div>
+</div>
   </section>
 
   <section id="vq"><h2>🎡 Hôm nay ăn gì?</h2><p class="sub">Không biết mời món gì? Để số phận quyết định.</p>
@@ -294,10 +336,10 @@ document.getElementById('ok').onclick=function(){
   var lm=pick(LIFE);document.getElementById('msg').textContent='Cảm ơn '+nm+'! 🙏 '+lm;boom();mkPoster(nm,lm);
 };
 var D=[].map.call(document.querySelectorAll('.mi'),function(b){return{n:b.dataset.n,e:b.querySelector('.e').textContent}}),
-    N=D.length,ST=360/N,rot=0,pk=null,wh=document.getElementById('wh'),cl=['#2a8a4e','#e8b830','#4ea15e','#f08a4b'];
+    N=D.length,ST=360/N,rot=0,pk=null,wh=document.getElementById('wh'),cl=['#2a8a4e','#e8b830','#4ea15e'];
 (function(){var h='',R=150,c=160;
   for(var i=0;i<N;i++){var a0=(i*ST-90)*Math.PI/180,a1=((i+1)*ST-90)*Math.PI/180,m=(a0+a1)/2;
-    h+='<path d="M'+c+','+c+' L'+(c+R*Math.cos(a0))+','+(c+R*Math.sin(a0))+' A'+R+','+R+' 0 0 1 '+(c+R*Math.cos(a1))+','+(c+R*Math.sin(a1))+'Z" fill="'+cl[i%4]+'" stroke="#fff" stroke-width="2"/>'+
+    h+='<path d="M'+c+','+c+' L'+(c+R*Math.cos(a0))+','+(c+R*Math.sin(a0))+' A'+R+','+R+' 0 0 1 '+(c+R*Math.cos(a1))+','+(c+R*Math.sin(a1))+'Z" fill="'+cl[i%3]+'" stroke="#fff" stroke-width="2"/>'+
     '<text x="'+(c+100*Math.cos(m))+'" y="'+(c+100*Math.sin(m)+9)+'" font-size="26" text-anchor="middle">'+D[i].e+'</text>'}
   wh.innerHTML=h+'<circle cx="160" cy="160" r="16" fill="#fff"/>'})();
 document.getElementById('sp').onclick=function(){
@@ -339,26 +381,26 @@ function rr(g,x,y,w,h,r){g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);els
 function wrapT(g,t,x,y,w,lh){var ws=t.split(' '),l='';ws.forEach(function(s){var q=l?l+' '+s:s;if(g.measureText(q).width>w&&l){g.fillText(l,x,y);y+=lh;l=s}else l=q});g.fillText(l,x,y);return y}
 async function poster(nm,d,msg,amt,th){
   var W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d'),T=THEMES[th]||THEMES.g;
-  try{await document.fonts.ready}catch(e){}
+  try{await document.fonts.ready;await Promise.all(['800 64px "Baloo 2"','italic 600 42px "Playfair Display"','40px Pacifico'].map(function(x){return document.fonts.load(x,'ăâêôơưđ')}))}catch(e){}
   var f="'Be Vietnam Pro','Baloo 2',system-ui,sans-serif",gr=g.createLinearGradient(0,0,0,H);
-  gr.addColorStop(0,T.b1);gr.addColorStop(1,T.b2);g.fillStyle=gr;g.fillRect(0,0,W,H);
+  var fT="'Baloo 2','Be Vietnam Pro',sans-serif",fQ="'Playfair Display',Georgia,serif",fH="'Pacifico','Be Vietnam Pro',cursive";gr.addColorStop(0,T.b1);gr.addColorStop(1,T.b2);g.fillStyle=gr;g.fillRect(0,0,W,H);
   g.fillStyle=T.hd;g.fillRect(0,0,W,140);g.fillStyle=T.ht;g.textAlign='center';g.font='700 34px '+f;g.fillText('ĂN XIN ONLINE · BẠN QUÉT, MÌNH NO',W/2,84);
   g.fillStyle=T.cd;g.beginPath();g.arc(W/2,370,160,0,7);g.fill();g.strokeStyle=T.ac;g.lineWidth=6;g.stroke();
   g.font='180px "Apple Color Emoji","Noto Color Emoji",sans-serif';g.fillText(d.e,W/2,435);
-  var s=64,t='Cảm ơn '+nm+'!';g.font='800 '+s+'px '+f;while(g.measureText(t).width>940&&s>34){s-=4;g.font='800 '+s+'px '+f}
+  var s=64,t='Cảm ơn '+nm+'!';g.font='800 '+s+'px '+fT;while(g.measureText(t).width>940&&s>34){s-=4;g.font='800 '+s+'px '+fT}
   g.fillStyle=T.ik;g.fillText(t,W/2,640);
-  g.fillStyle=T.ac;g.font='600 40px '+f;g.fillText('đã mời mình '+d.n+(amt?' ('+vnd(amt)+')':''),W/2,705);
+  g.fillStyle=T.ac;g.font='40px '+fH;g.fillText('đã mời mình '+d.n+(amt?' ('+vnd(amt)+')':''),W/2,705);
   var bd='🏅 '+(BADGE[d.n]||'Người tử tế');g.font='700 32px '+f;var bw=g.measureText(bd).width+56;
   g.fillStyle=T.ac;rr(g,(W-bw)/2,730,bw,60,30);g.fill();g.fillStyle=T.ht;g.fillText(bd,W/2,772);
   g.fillStyle=T.cd;rr(g,80,815,920,355,36);g.fill();g.strokeStyle=T.ln;g.lineWidth=3;g.stroke();
   g.fillStyle=T.ac;g.font='600 28px '+f;g.fillText('THÔNG ĐIỆP DÀNH CHO BẠN',W/2,872);
-  g.fillStyle=T.ik;g.font='italic 500 42px '+f;wrapT(g,'“'+msg+'”',W/2,948,820,60);
+  g.fillStyle=T.ik;g.font='italic 600 42px '+fQ;wrapT(g,'“'+msg+'”',W/2,948,820,60);
   g.fillStyle=T.mu;g.font='500 30px '+f;g.fillText(new Date().toLocaleDateString('vi-VN'),W/2,1245);
   g.fillText('Một bữa ăn nhỏ, một niềm vui lớn 🍚',W/2,1295);
   return new Promise(function(r){c.toBlob(r,'image/png')});
 }
 var THEMES={g:{b1:'#f9f5ea',b2:'#e2efd9',hd:'#2a8a4e',ht:'#fff',ac:'#2a8a4e',ik:'#1d3325',cd:'#fff',mu:'#5a625b',ln:'#d8d6c6'},y:{b1:'#fff8e1',b2:'#ffe3a3',hd:'#d08a00',ht:'#fff',ac:'#b86e00',ik:'#3b2a00',cd:'#fffdf5',mu:'#7a6a40',ln:'#f0d9a0'},k:{b1:'#14201a',b2:'#0c1410',hd:'#4fbf75',ht:'#0c1410',ac:'#7fd18a',ik:'#f1f0e4',cd:'#1b2a21',mu:'#b3bbb2',ln:'#34473b'}};
-var BADGE={'ly trà đá':'Hiệp sĩ trà đá','ổ bánh mì':'Chiến thần bánh mì','tô cơm trứng':'Người hùng cơm trứng','tô phở':'Quý tộc nước dùng','ly nước cam':'Chuyên gia vitamin C','dĩa mồi':'Bậc thầy mồi nhậu','thùng bia':'Mạnh thường quân thùng bia'},TH='g',LP=null;
+var BADGE={'ly trà đá':'Hiệp sĩ trà đá','ổ bánh mì':'Chiến thần bánh mì','tô cơm trứng':'Người hùng cơm trứng','tô phở':'Quý tộc nước dùng','ly nước cam':'Chuyên gia vitamin C','dĩa mồi':'Bậc thầy mồi nhậu','thùng bia':'Mạnh thường quân thùng bia','cơm gà':'Hoàng tử cơm gà','nồi lẩu':'Đại gia nồi lẩu'},TH='g',LP=null;
 function setP(b){if(!b)return;if(PU)URL.revokeObjectURL(PU);PS=b;PU=URL.createObjectURL(b);document.getElementById('pi').src=PU}
 async function mkPoster(nm,msg){
   var d=D.filter(function(x){return x.n===cur.n})[0]||{n:'một bữa ăn',e:'🍚'};
@@ -378,10 +420,10 @@ document.getElementById('ps').onclick=function(){
 };
 rb();
 function boom(){
-  try{var AC=window.AudioContext||window.webkitAudioContext,a=new AC();[[880,0],[1318,.12]].forEach(function(p){var o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.value=p[0];o.connect(g);g.connect(a.destination);var t=a.currentTime+p[1];g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.25,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.5);o.start(t);o.stop(t+.55)})}catch(e){}
+  if(SND){phao();xuan()}
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:80';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);
-  var g=c.getContext('2d'),cs=['#2a8a4e','#f2b522','#f08a4b','#4ea15e','#fff'],ps=[];
+  var g=c.getContext('2d'),cs=['#d62828','#f2b522','#2a8a4e','#e63946','#fff'],ps=[];
   for(var i=0;i<120;i++)ps.push({x:c.width/2,y:c.height*.6,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,s:6+Math.random()*6,c:cs[i%5],r:Math.random()*6});
   var t0=performance.now();(function f(t){g.clearRect(0,0,c.width,c.height);ps.forEach(function(p){p.vy+=.4;p.x+=p.vx;p.y+=p.vy;p.r+=.2;g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillStyle=p.c;g.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);g.restore()});if(t-t0<2600)requestAnimationFrame(f);else c.remove()})(t0);
 }
@@ -413,10 +455,10 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden)sync
   var root=document.documentElement,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
   root.classList.add('js');
   // Hiện dần khi cuộn tới
-  var els=[].slice.call(document.querySelectorAll('.hero > div > *,.art,section h2,section .sub,.fx,.tw,.mt tbody tr'));
+  var els=[].slice.call(document.querySelectorAll('.hero > div > *,.art,section h2,section .sub,.fx,.grp'));
   els.forEach(function(e,i){e.classList.add('rv');
     if(e.closest('.hero'))e.style.setProperty('--d',(i*.08)+'s');
-    else if(e.tagName==='TR')e.style.setProperty('--d',((i%7)*.06)+'s')});
+    else if(e.classList.contains('grp'))e.style.setProperty('--d',((i%3)*.1)+'s')});
   if('IntersectionObserver'in window){
     var io2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io2.unobserve(x.target)}})},{threshold:.12});
     els.forEach(function(e){io2.observe(e)});
@@ -442,7 +484,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden)sync
     sv.style.transform='perspective(700px) rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)'});
   art.addEventListener('pointerleave',function(){sv.style.transform=''});
   sv.addEventListener('click',function(){
-    n++;
+    n++;if(SND&&n%5)pluck(PEN[n%6]*1.5,ctx().currentTime,.1,.7);
     if(!rm){
       var c=document.createElement('span'),r=art.getBoundingClientRect(),q=sv.getBoundingClientRect(),
           y0=q.top-r.top-60,y1=q.top-r.top+q.height*.38;
@@ -453,6 +495,67 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden)sync
     if(n%5===0){cc.textContent='🎉 '+n+' xu rồi! Giờ mời mình món thật nhé 😄';boom()}
     else cc.textContent='🪙 Đã thả '+n+' đồng xu';
   });
+})();
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,bg=document.createElement('div');bg.className='bg';
+  ['background:var(--g2);width:50vmax;height:50vmax;left:-15vmax;top:-12vmax','background:#f2b522;width:42vmax;height:42vmax;right:-14vmax;top:30%;animation-delay:-6s','background:var(--g1);width:46vmax;height:46vmax;left:15%;bottom:-20vmax;animation-delay:-12s'].forEach(function(s){var i=document.createElement('i');i.style.cssText=s;bg.appendChild(i)});
+  ['🍚','🍜','🥖','🧊','🍊','🍢','🍺','🥚'].forEach(function(e,k){var s=document.createElement('b');s.textContent=e;s.style.cssText='left:'+(6+k*12)+'%;animation-delay:'+(-k*3.1)+'s;animation-duration:'+(22+k*2)+'s';bg.appendChild(s)});
+  document.body.insertBefore(bg,document.body.firstChild);
+  var T=['🍚 Bát đang trống','🧊 Trà đá cũng quý','🥖 Bánh mì cứu đói','🍜 Phở là chân ái','🍊 Vitamin C cho tâm hồn','🍺 Bia thì… thôi xin nhẹ','📶 Có cả wifi'].join('  ·  ')+'  ·  ',
+      mq=document.createElement('div'),mi=document.createElement('div');
+  mq.className='mq';mi.className='mqi';mi.textContent=T+T;mq.appendChild(mi);
+  var hero=document.querySelector('.hero');if(hero)hero.insertAdjacentElement('afterend',mq);
+  var last=0,ch=['✨','✨','🪙'];
+  if(!rm)addEventListener('pointermove',function(e){
+    if(e.pointerType!=='mouse')return;var n=performance.now();if(n-last<45)return;last=n;
+    var s=document.createElement('span');s.className='sk';s.textContent=pick(ch);s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);
+    s.animate([{transform:'translate(0,0) scale(1)',opacity:.9},{transform:'translate('+(Math.random()*30-15)+'px,34px) scale(.3)',opacity:0}],{duration:700}).onfinish=function(){s.remove()}});
+})();
+// ===== Âm thanh Tết (tạo bằng Web Audio, không cần file nhạc) =====
+var AC_=null,SND=true,MUS=false,mt=null,PEN=[587.33,659.25,739.99,880,987.77,1174.66];
+try{SND=localStorage.getItem('anxin_snd')!=='0'}catch(e){}
+function ctx(){if(!AC_){var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;AC_=new C()}if(AC_.state==='suspended')AC_.resume();return AC_}
+function pluck(f,t,v,d,x){var a=ctx();if(!a)return;var o=a.createOscillator(),o2=a.createOscillator(),g=a.createGain();
+  o.type='triangle';o.frequency.value=f;o2.type='sine';o2.frequency.value=f*2;
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+  o.connect(g);o2.connect(g);g.connect(x||a.destination);o.start(t);o2.start(t);o.stop(t+d+.05);o2.stop(t+d+.05)}
+function crack(t,v,x){var a=ctx(),n=a.sampleRate*.06|0,b=a.createBuffer(1,n,a.sampleRate),d=b.getChannelData(0);
+  for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,3);
+  var s=a.createBufferSource(),g=a.createGain(),f=a.createBiquadFilter();f.type='highpass';f.frequency.value=1200;g.gain.value=v;
+  s.buffer=b;s.connect(f);f.connect(g);g.connect(x||a.destination);s.start(t)}
+function phao(){if(!SND)return;var a=ctx();if(!a)return;var t=a.currentTime;
+  for(var i=0;i<26;i++)crack(t+i*(.05+Math.random()*.06)+(i>16?.12:0),.3+Math.random()*.4);
+  var o=a.createOscillator(),g=a.createGain();o.frequency.setValueAtTime(110,t+1.9);o.frequency.exponentialRampToValueAtTime(40,t+2.3);
+  g.gain.setValueAtTime(.5,t+1.9);g.gain.exponentialRampToValueAtTime(.0001,t+2.4);o.connect(g);g.connect(a.destination);o.start(t+1.9);o.stop(t+2.5)}
+function xuan(){if(!SND)return;var a=ctx();if(!a)return;var t=a.currentTime+.1;
+  pluck(146.83,t,.18,1.8);
+  [0,2,3,4,5,4,3,2,3,5].forEach(function(k,i){pluck(PEN[k],t+i*.14,.12,.9)});
+  pluck(PEN[5],t+1.5,.14,1.6);pluck(PEN[3],t+1.5,.08,1.6)}
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sb=document.createElement('button');sb.className='thm snd';sb.style.right='60px';sb.textContent=SND?'🔊':'🔇';sb.setAttribute('aria-label','Bật/tắt âm thanh');document.body.appendChild(sb);
+  sb.onclick=function(){SND=!SND;try{localStorage.setItem('anxin_snd',SND?'1':'0')}catch(e){}sb.textContent=SND?'🔊':'🔇';if(SND){var a=ctx();if(a)pluck(PEN[3],a.currentTime,.1,.6)}};
+  // Nghiêng 3D theo con trỏ / ngón tay + ánh sáng kính chạy theo
+  function tilt(el,max){
+    el.style.transition='transform .15s ease-out,opacity .6s ease';
+    function set(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');if(rm)return;
+      el.style.transform='perspective(800px) rotateX('+((.5-y)*max)+'deg) rotateY('+((x-.5)*max*1.4)+'deg) scale(1.02)'}
+    function reset(){el.style.transform=''}
+    el.addEventListener('pointermove',function(e){if(e.pointerType==='mouse')set(e)});
+    el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')set(e)});
+    ['pointerleave','pointerup','pointercancel'].forEach(function(v){el.addEventListener(v,reset)});
+  }
+  document.querySelectorAll('.mi').forEach(function(e){tilt(e,14);
+    e.addEventListener('keydown',function(v){if(v.key==='Enter'||v.key===' '){v.preventDefault();e.click()}})});
+  document.querySelectorAll('.fx').forEach(function(e){tilt(e,4)});
+  document.querySelectorAll('.grp').forEach(function(g){g.addEventListener('pointermove',function(e){
+    var r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');g.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')})});
+  // Đồng xu 3D xoay quanh tô cơm
+  var art=document.querySelector('.art');
+  if(art&&!rm)[['4%','14%',0],['84%','46%',-1.2],['8%','60%',-2.1],['70%','4%',-.6]].forEach(function(p){
+    var o=document.createElement('span'),c=document.createElement('span');o.className='c3o';o.style.left=p[0];o.style.top=p[1];o.style.animationDelay=p[2]+'s';
+    c.className='c3';c.textContent='đ';c.style.animationDelay=p[2]+'s';o.appendChild(c);art.appendChild(o)});
 })();
 rn();sync();
 </script>
